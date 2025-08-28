@@ -1,0 +1,20 @@
+.Dictionary {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.Dictionary .search-title {
+  text-align: center;
+  font-size: 20px;
+}
+.Dictionary .search-input {
+  display: block;
+  height: 40px;
+  color: #666;
+  font-size: 18px;
+  line-height: 21px;
+  border: 1px solid #828282;
+  border-radius: 5px;
+  width: 300px;
+  margin: 0 auto;
+}
