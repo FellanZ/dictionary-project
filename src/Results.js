@@ -1,6 +1,7 @@
 import React from "react";
-import Meaning from "./Meaning";
 import Phonetic from "./Phonetic";
+import Meaning from "./Meaning";
+import "./Results.css";
 
 export default function Results(props) {
   const results = props.results;
@@ -9,16 +10,17 @@ export default function Results(props) {
 
   return (
     <div className="Results">
-      <h2>{results.word}</h2>
+      <section>
+        <h2>{results.word}</h2>
 
-      {results.phonetic && <Phonetic phonetic={{ text: results.phonetic }} />}
-
+        {results.phonetic && <Phonetic phonetic={{ text: results.phonetic }} />}
+      </section>
       {Array.isArray(results.meanings) &&
         results.meanings.map(function (meaning, index) {
           return (
-            <div key={index}>
+            <section key={index}>
               <Meaning meaning={meaning} />
-            </div>
+            </section>
           );
         })}
     </div>
