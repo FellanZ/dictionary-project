@@ -3,26 +3,24 @@ import Meaning from "./Meaning";
 import Phonetic from "./Phonetic";
 
 export default function Results(props) {
-  if (props.results) {
-    return (
-      <div className="Results">
-        <h2>{props.results.word}</h2>
-        {Array.isArray(props.results.phonetic) &&
-          props.results.phonetic.map((phonetic, index) => (
-            <div key={index}>
-              <Phonetic phonetic={phonetic} />
-            </div>
-          ))}
-        {props.results.meanings.map(function (meaning, index) {
+  const results = props.results;
+
+  if (!results) return null;
+
+  return (
+    <div className="Results">
+      <h2>{results.word}</h2>
+
+      {results.phonetic && <Phonetic phonetic={{ text: results.phonetic }} />}
+
+      {Array.isArray(results.meanings) &&
+        results.meanings.map(function (meaning, index) {
           return (
             <div key={index}>
               <Meaning meaning={meaning} />
             </div>
           );
         })}
-      </div>
-    );
-  } else {
-    return null;
-  }
+    </div>
+  );
 }

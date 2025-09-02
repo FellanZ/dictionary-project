@@ -3,11 +3,11 @@ import React from "react";
 export default function Phonetic(props) {
   const phonetic = props.phonetic;
 
-  if (!phonetic) return null;
+  if (!phonetic || !phonetic.text) return null;
 
   return (
     <div className="Phonetic">
-      {phonetic.text && <span> {phonetic.text}</span>}
+      <span>{phonetic.text}</span>
     </div>
   );
 }
